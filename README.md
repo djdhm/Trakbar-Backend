@@ -36,18 +36,12 @@ npm run server
 
 ## Contributing
 There are two types of authorization used in this application 
+
   Oauth2 | Fixed Token authorization 
 ------------- | -------------
 Poster   | Cassanova
    Scloby | 
-You can add a new provider from those two types just by adding a new route parameter option to one of those two routes : 
-```nodejs 
-<Route exact path='/:provider(poster|scloby)' 
-       component={(props)=><OauthOnboarding {...props} />}/>
-<Route exact path='/:provider(cassanova)'
-             component={(props)=><FixedTokenOnBoarding   {...props} />}/>
 
-``` 
 
 ### Adding a provider 
  All providers methods are found in folder 
