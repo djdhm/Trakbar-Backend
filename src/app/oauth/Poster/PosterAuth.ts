@@ -70,10 +70,11 @@ export default class PosterAuth implements AuthProvider{
               })
           }))
     }
-     getSettings=()=>{
+    private baseUrl = "https://joinposter.com/api";
+    getSettings=()=>{
          return new Promise(((resolve, reject) =>
          {
-             Axios.get("https://joinposter.com/api/settings.getAllSettings")
+             Axios.get(this.baseUrl +    "/settings.getAllSettings")
                  .then((settings)=>{
                      resolve(settings);
                  }).catch((error)=>{
@@ -83,7 +84,7 @@ export default class PosterAuth implements AuthProvider{
     }
 
     getLocations(req: Request): Promise<any> {
-       return this.posterService.getLocations(req.body.token)
+       return this.posterService.getLocations(req.query.token)
     }
 
 

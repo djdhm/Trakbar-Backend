@@ -30,7 +30,7 @@ export default class OauthController {
                 res.status(200);
                 res.send(response)
             }).catch((error)=>{
-            console.log(error)
+           console.log(error)
             res.status(401);
             res.send({
                 error:"Authorization failed"
@@ -52,16 +52,17 @@ export default class OauthController {
         providerHandler.getLocations(req)
                               .then((location)=>{
                                   console.log(location)
-
                                     res.status(200)
                                     res.send(
-                                       location.response
+                                       location
 
                                     )
                               }).catch((err)=>{
+                                  console.log(err)
                                   res.status(401);
                                   res.send({
-                                      error:"Error fetching locations"
+                                      error:"Error fetching locations",
+                                      message:err
                                   })
                               })
     }
